@@ -1,6 +1,9 @@
 { pkgs }: {
 	deps = [
-		pkgs.openssh_with_kerberos
+		pkgs.mongoose.bin
+  pkgs.mmh
+  pkgs.mongodb-3_4
+  pkgs.openssh_with_kerberos
   pkgs.gh
   pkgs.sudo
   pkgs.run

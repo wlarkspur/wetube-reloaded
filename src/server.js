@@ -1,8 +1,10 @@
+import "./db"
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter";
 import videoRouter from "./routers/videoRouter";
 import usersRouter from "./routers/usersRouter"; 
+const mongo = require('mongodb');
 
 const PORT = 4000;
 
