@@ -10,7 +10,7 @@
     "formdata-polyfill": "^4.0.10",
     "mongo": "^0.1.0",
     "mongodb": "^4.8.1",
-    "mongoose": "^6.5.0",
+    "mongoose": "^6.5.1",
     "morgan": "^1.10.0",
     "node-domexception": "^1.0.0",
     "node-fetch": "^3.2.6",
@@ -19,7 +19,7 @@
     "web-streams-polyfill": "^3.2.1"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "repository": {
     "type": "git",
