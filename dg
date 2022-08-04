@@ -1,0 +1,59 @@
+[33mcommit 25aa8ca140a72b1b140297bde85ed9c19b9d066d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: wlarkspur <wlarkspur@gmail.com>
+Date:   Thu Aug 4 17:26:41 2022 +0900
+
+    update
+
+[33mcommit ef8b0939a2f3b25c720a65f09e5e28b09843ab4e[m
+Merge: 26d272c c67d2cd
+Author: wlarkspur <wlarkspur@gmail.com>
+Date:   Thu Aug 4 16:03:04 2022 +0900
+
+    Merge branch 'main' of https://github.com/wlarkspur/wetube-reloaded
+
+[33mcommit c67d2cda8a1f651d642184dbb260063471c8bc71[m
+Author: Seokmin JEONG <38037601+wlarkspur@users.noreply.github.com>
+Date:   Thu Aug 4 15:55:10 2022 +0900
+
+    Add files via upload
+    
+    update
+
+[33mcommit 26d272c592157f9f3ef9aff4bbcbc776b0addd28[m
+Author: wlarkspur <wlarkspur@gmail.com>
+Date:   Thu Aug 4 15:46:50 2022 +0900
+
+    update
+
+[33mcommit bd3f4a97873bcf7c3a61c773f021f7f1fb7b4890[m
+Author: Seokmin JEONG <38037601+wlarkspur@users.noreply.github.com>
+Date:   Wed Aug 3 12:58:47 2022 +0000
+
+    server
+
+[33mcommit 6be4de786a5fce37b9db357d1ae2d80f0885b4f7[m
+Author: Seokmin JEONG <38037601+wlarkspur@users.noreply.github.com>
+Date:   Tue Aug 2 13:45:23 2022 +0000
+
+    form method="POST" update
+    videos/:id/edit -> update title
+
+[33mcommit 5f20bee37e3ecf28cee3e5fce9c9fc5317b4fe80[m
+Author: Seokmin JEONG <38037601+wlarkspur@users.noreply.github.com>
+Date:   Mon Aug 1 13:38:36 2022 +0000
+
+    #6.0 Array Database - 1
+    mixins/video
+    video(info)
+
+[33mcommit 21b4af1d7e65d9d8085aefd60dbc9c6023ffc10b[m
+Author: Seokmin JEONG <38037601+wlarkspur@users.noreply.github.com>
+Date:   Mon Aug 1 09:52:04 2022 +0000
+
+    update
+
+[33mcommit 1660ea51112f261ca5225f67b7cad2a52233e276[m
+Author: smjeong <wlarkspur@gmail.com>
+Date:   Fri Jul 29 09:02:19 2022 +0000
+
+    first commit
