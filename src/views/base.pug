@@ -1,5 +1,5 @@
 doctype html
-html(lang="ko")
+html(lang="en")
   head
     title #{pageTitle} | Wetube
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
@@ -10,6 +10,8 @@ html(lang="ko")
         ul
           li
             a(href="/videos/upload") Upload Video
+          li
+            a(href="/") Home  
     main
       block content
   include partials/footer
