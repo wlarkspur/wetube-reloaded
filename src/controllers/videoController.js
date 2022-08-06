@@ -1,12 +1,5 @@
 import Video from "../models/Video";
 
-/* 
-console.log("start")
-Video.find({}, (error, videos) => {
-  return res.render("home", {pageTitle: "Home", videos})
-});
-console.log("finished")
-*/
 
 export const home = async (req, res) => {
   const videos = await Video.find({}); 
@@ -41,13 +34,13 @@ export const postEdit = async (req, res) => {
   await Video.findByIdAndUpdate(id, {
     title,
     description,
-    hashtags,
+    hashtags: Video.formatHashtags(hashtags),
   });
   return res.redirect(`/videos/${id}`);
 };
 
 export const getUpload = (req, res) => {
-  return res.render("upload", {pageTitle: "Upload Video"});
+  return res.render("upload", { pageTitle: "Upload Video" });
 };
 
 export const postUpload = async (req, res) => {
@@ -56,11 +49,10 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      hashtags,
+      hashtags: Video.formatHashtags(hashtags),
     });
     return res.redirect("/");
   } catch (error) {
-    console.log(error);
     return res.render("upload", {
       pageTitle: "Upload Video",
       errorMessage: error._message,
