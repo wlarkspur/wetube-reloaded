@@ -13,7 +13,6 @@ const handleError = (error) => console.log("BD Error", error);
 db.on("error", handleError);
 db.once("open", handleOpen);
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
+
 
 
