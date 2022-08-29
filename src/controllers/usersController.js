@@ -1,5 +1,6 @@
-import User from "../models/Users"
-import bcrypt from "bcrypt"
+import User from "../models/Users";
+import fetch from "node-fetch";
+import bcrypt from "bcrypt";
 
 export const getJoin = (req, res) => res.render("join", {pageTitle: "Join"});
 export const postJoin = async (req, res) => {
@@ -77,18 +78,46 @@ export const finishGithubLogin = async (req, res) => {
     const config = {
         client_id: process.env.GH_CLIENT,
         client_secret: process.env.GH_SECRET,
-        code: req.query.code
+        code: req.query.code,
     };
     const params = new URLSearchParams(config).toString();
     const finalUrl = `${baseUrl}?${params}`;
-    const data = await fetch(finalUrl, {
+    const tokenRequest = await (
+        await fetch(finalUrl, {
         method:"POST",
         headers: {
             Accept: "application/json",
         },
-    }).then;
-    const json = await data.json();
-    console.log(json)
+      })
+    ).json();
+    if("access_token" in tokenRequest){
+        const {access_token} = tokenRequest;
+        const apiUrl = "https://api.github.com"
+        const userData = await (
+            await fetch(`${apiUrl}/user`, {
+            headers: {
+                Authorization: `token ${access_token}`,
+            },
+          })
+        ).json();
+          console.log(userData)
+        const emailData = await (
+            await fetch(`${apiUrl}/user/emails`, {
+                headers: {
+                    Authorization: `token ${access_token}`,
+                },
+              })
+        ).json();
+          console.log(emailData)
+          const email = emailData.find(
+            (email) => email.primary === true && email.verified === true
+          );
+          if(!email){
+            return res.redirect("/login")
+          }
+    }else {
+        return res.redirect("/login")
+    }
 };
 
 export const edit = (req, res) => res.send("Edit User");
