@@ -108,7 +108,7 @@ export const finishGithubLogin = async (req, res) => {
                 },
               })
         ).json();
-          console.log(emailData)
+        
           const emailObj = emailData.find(
             (email) => email.primary === true && email.verified === true
           );
@@ -133,6 +133,23 @@ export const finishGithubLogin = async (req, res) => {
     }else {
         return res.redirect("/login")
     }
+};
+
+export const startKakaoLogin = (req, res) => {
+    const baseUrl = `https://kauth.kakao.com/oauth/authorize`;
+    const config = {
+        client_id: process.env.REST_API,
+        redirect_uri: process.env.REDIRECT_URI,
+        response_type: "code",  
+    };
+    const params = new URLSearchParams(config).toString();
+    console.log(params);
+    const finalUrl = `${baseUrl}?${params}`;
+    return res.redirect(finalUrl);
+};
+
+export const finishKakaoLogin = (req, res) => {
+
 };
 
 export const edit = (req, res) => res.send("Edit User");
