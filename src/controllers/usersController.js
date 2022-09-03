@@ -1,6 +1,7 @@
 import User from "../models/Users";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
+import { token } from "morgan";
 
 export const getJoin = (req, res) => res.render("join", {pageTitle: "Join"});
 export const postJoin = async (req, res) => {
@@ -140,17 +141,38 @@ export const startKakaoLogin = (req, res) => {
     const config = {
         client_id: process.env.REST_API,
         redirect_uri: process.env.REDIRECT_URI,
-        response_type: "code",  
+        response_type: `code`,  
     };
+    console.log(config);
     const params = new URLSearchParams(config).toString();
-    console.log(params);
     const finalUrl = `${baseUrl}?${params}`;
     return res.redirect(finalUrl);
 };
 
-export const finishKakaoLogin = (req, res) => {
+export const finishKakaoLogin = async (req, res) => {
+    const baseUrl = `https://kauth.kakao.com/oauth/token`
+    const config = {
+        grant_type: "authorization_code",
+        client_id: process.env.REST_API,
+        refresh_token: process.env.REDIRECT_URI,
+        code: req.query.code,
+    };
+    console.log(req.query.code)
+    const params = new URLSearchParams(config).toString();
+    const finalUrl = `${baseUrl}?${params}`;
+    const tokenRequest = await (
+        await fetch(finalUrl, {
+            method:"POST",
+            headers: {
+                Accept: `application/json`,
+            },
+        })
+        ).json();
+    const urlParams = new URL(location.href).searchParams;
+    const code = urlParams.get("code");
+        console.log(code);  
+    };
 
-};
 
 export const edit = (req, res) => res.send("Edit User");
 export const logout = (req, res) => {
