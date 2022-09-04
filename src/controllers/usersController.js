@@ -143,7 +143,7 @@ export const startKakaoLogin = (req, res) => {
     redirect_uri: process.env.REDIRECT_URI,
     response_type: `code`,
   };
-  console.log(config);
+  //console.log(config);
   const params = new URLSearchParams(config).toString();
   const finalUrl = `${baseUrl}?${params}`;
   return res.redirect(finalUrl);
@@ -157,7 +157,7 @@ export const finishKakaoLogin = async (req, res) => {
     refresh_token: process.env.REDIRECT_URI,
     code: req.query.code,
   };
-  console.log(req.query.code);
+  //console.log(req.query.code);
   const params = new URLSearchParams(config).toString();
   const finalUrl = `${baseUrl}?${params}`;
   const tokenRequest = await (
@@ -170,7 +170,7 @@ export const finishKakaoLogin = async (req, res) => {
   ).json();
   const urlParams = new URL(location.href).searchParams;
   const code = urlParams.get("code");
-  console.log(code);
+  //console.log(code);
 };
 
 export const logout = (req, res) => {
@@ -187,9 +187,19 @@ export const postEdit = async (req, res) => {
       user: { _id },
     },
     body: { name, email, username, location },
-  } = req; //from the form
- 
-    
+    } = req; //from the form
+    console.log(req.session.user);
+  const findUsername = await User.findOne({ username });
+  const findEmail = await User.findOne({ email });
+    if (
+        (findUsername != null && findUsername._id != _id) ||
+        (findEmail != null && findEmail._id != _id)
+    ) {
+        return res.render("edit-Profile", {
+            pageTitle: "Edit  Profile",
+            errorMessage: "User is exist",
+        });
+    }
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
