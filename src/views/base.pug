@@ -5,6 +5,7 @@ html(lang="en")
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
   body
     header
+      
       h1=pageTitle
       nav
         ul
@@ -17,6 +18,7 @@ html(lang="en")
                 a(href="/users/logout") Log Out
               li
                 a(href="/my-profile") #{loggedInUser.name}'s profile
+              
               li
                 a(href="/videos/upload") Upload Video
           else

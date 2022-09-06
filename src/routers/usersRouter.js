@@ -21,8 +21,8 @@ usersRouter
   .route("/change-password")
   .all(protectorMiddleware)
   .get(getChangePassword)
-  .post(postChangePassword);
-  
+  .post(postChangePassword)
+
 usersRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 usersRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
 usersRouter.get("/kakao/start", startKakaoLogin);
