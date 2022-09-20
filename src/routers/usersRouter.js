@@ -36,6 +36,7 @@ usersRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 usersRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
 usersRouter.get("/kakao/start", startKakaoLogin);
 usersRouter.get("/kakao/finish", finishKakaoLogin);
+
 usersRouter.get("/:id", see);
 
 export default usersRouter;
