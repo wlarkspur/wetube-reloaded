@@ -1,4 +1,3 @@
 import "../scss/styles.scss";
 
-console.log("Privet");
-alert("Privet!");
+console.log("Privet main");
