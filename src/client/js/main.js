@@ -1,3 +1,2 @@
 import "../scss/styles.scss";
-
-console.log("Privet main");
+import regeneratorRuntime from "regenerator-runtime";
