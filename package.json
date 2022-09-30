@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "none.",
   "dependencies": {
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.5",
     "@replit/database": "^2.0.2",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
