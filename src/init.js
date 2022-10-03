@@ -2,6 +2,7 @@ import "dotenv/config"
 import "./db"
 import "./models/Video";
 import "./models/Users";
+import "./models/Comment";
 import app from "./server"
 
 
