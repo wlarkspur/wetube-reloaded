@@ -43,3 +43,7 @@ const handleSubmit = async (event) => {
 if (form) {
   form.addEventListener("submit", handleSubmit);
 }
+
+const deleteComment = () => {
+    
+};
