@@ -24,7 +24,7 @@ const addComment = (text, id) => {
 };
 
 const handleSubmit = async (event) => {
-  event.preventDefault();
+  event.preventDefault(); 
   const textarea = form.querySelector("textarea");
   const text = textarea.value;
   const videoId = videoContainer.dataset.id;

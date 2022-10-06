@@ -30,8 +30,12 @@
     "web-streams-polyfill": "^3.2.1"
   },
   "scripts": {
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -44,7 +48,8 @@
   },
   "homepage": "https://github.com/wlarkspur/wetube-reloaded#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.9",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
     "@babel/node": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "babel-loader": "^8.2.5",
