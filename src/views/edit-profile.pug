@@ -12,6 +12,6 @@ block content
         input(placeholder="Username",name="username", type="text", required, value=loggedInUser.username)
         input(placeholder="Location",name="location", type="text", required, value=loggedInUser.location)
         input(placeholder="", type="submit", value="Update Profile")
-        if !loggedInUser.socialOnly 
+        if !loggedInUser.socialOnly.toString().includes("github")
             .edit-profile__password 
                 a(href="change-password") Change Password &rarr;

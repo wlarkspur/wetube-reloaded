@@ -6,13 +6,28 @@ const s3 = new S3Client({
   region: "us-east-1",
   credentials: {
     accessKeyId: process.env.AWS_ID,
-    secretAccesKey: process.env.AWS_SECRET,
+    secretAccessKey: process.env.AWS_SECRET,
   },
+  /**apiVersion: "2022-10-07",
+  statement: [{
+    Resource: "arn:aws:s3:::mizenker/*",
+    Sid: "PublicReadGetObject",
+    Effect: "Allow",
+    Principal: "*",
+    Action: "s3:GetObject",
+  }],**/
+  
 });
 
 const multerUploader = multerS3({
   s3: s3,
   bucket: "mizenker",
+  Condition: {
+    StringEquals: {
+      "s3:x-amz-acl": ["public-read"],
+    },
+  }
+  
 });
 
 export const localsMiddleware = (req, res, next) => {
