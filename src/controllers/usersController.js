@@ -203,11 +203,11 @@ export const postEdit = async (req, res) => {
       errorMessage: "User is exist",
     });
   }
-  console.log(file);
+  const isHeroku = process.env.NODE_ENV === "production";
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.location : avatarUrl,
+      avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
       name,
       email,
       username,
